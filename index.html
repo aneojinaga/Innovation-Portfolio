@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Competencias Emprendedoras e Innovación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --ink-soft: #4a4642;
+    --ink-muted: #8a8480;
+    --paper: #f8f5f0;
+    --paper-warm: #f0ebe3;
+    --paper-card: #fdfaf6;
+    --accent: #2d5a3d;
+    --accent-light: #e8f2eb;
+    --accent-mid: #5a8f6a;
+    --amber: #c17f3e;
+    --amber-light: #faf0e2;
+    --rule: #d8d0c4;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 39px,
+      rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 39px,
+      rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px
+    );
+  }
+
+  .header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 1.25rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .header-eyebrow::before,
+  .header-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--accent-mid);
+    opacity: 0.5;
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    position: relative;
+    color: var(--paper);
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: #c8d8b8;
+  }
+
+  .header-subtitle {
+    font-size: 15px;
+    color: rgba(248,245,240,0.55);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    color: rgba(248,245,240,0.6);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper-card);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  nav a {
+    display: block;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  nav a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--rule);
+  }
+
+  /* ---- MAIN LAYOUT ---- */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  /* ---- SECTION ---- */
+  .section {
+    padding: 4rem 0 0;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--rule);
+    line-height: 1;
+    margin-top: 4px;
+    user-select: none;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .section-desc {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-body {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* ---- PLACEHOLDER ---- */
+  .placeholder {
+    border: 1.5px dashed var(--rule);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 14px;
+    background: var(--paper-warm);
+    margin-top: 1rem;
+  }
+
+  .placeholder-icon {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+
+  .placeholder strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+
+  /* ---- VIDEO EMBED ---- */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--ink);
+    margin-top: 1rem;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ---- GRID ---- */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+  }
+
+  /* ---- COMPETENCY BAR ---- */
+  .comp-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .comp-name {
+    font-size: 13px;
+    color: var(--ink-soft);
+    min-width: 160px;
+  }
+
+  .comp-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--paper-warm);
+    border-radius: 99px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+
+  .comp-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .comp-score {
+    font-size: 12px;
+    color: var(--ink-muted);
+    min-width: 30px;
+    text-align: right;
+  }
+
+  /* ---- BADGE ---- */
+  .badge-card {
+    background: var(--amber-light);
+    border: 1px solid #e8cc9a;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .badge-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  /* ---- LINKEDIN ---- */
+  .li-card {
+    background: #f0f4fa;
+    border: 1px solid #c8d8ee;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .li-logo {
+    width: 44px;
+    height: 44px;
+    background: #0a66c2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Georgia', serif;
+    flex-shrink: 0;
+  }
+
+  /* ---- TEAM SECTION ---- */
+  .team-card {
+    background: var(--accent-light);
+    border: 1px solid #bdd8c5;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  /* ---- CHECKLIST ---- */
+  .checklist {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: var(--ink-muted);
+    background: var(--paper-card);
+  }
+
+  .check.done {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* ---- LINK BUTTON ---- */
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius);
+    font-size: 13px;
+    color: var(--ink);
+    text-decoration: none;
+    margin-top: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .link-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .link-btn.green {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .link-btn.green:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* ---- CHIP ---- */
+  .chip {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 2px;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--ink);
+    color: rgba(248,245,240,0.45);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 13px;
+  }
+
+  footer strong { color: rgba(248,245,240,0.7); }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    header { padding: 3.5rem 1.25rem 3rem; }
+    main { padding: 0 1.25rem 4rem; }
+    nav { padding: 0 1.25rem; }
+    .section-num { font-size: 2.2rem; }
+    .section-title { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+  <div class="header-eyebrow">Portfolio Digital</div>
+  <h1>Competencias<br><em>Emprendedoras &amp; Innovación</em></h1>
+  <p class="header-subtitle">Evidencias digitales de aprendizaje · Grado en Innovación y Emprendimiento</p>
+  <div class="header-meta">
+    <span class="tag">Tu Nombre</span>
+    <span class="tag">Curso 2024–25</span>
+    <span class="tag">Asignatura: Innovación y Emprendimiento</span>
+  </div>
+</header>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#sec1">01 · Video habilidades</a>
+    <a href="#sec2">02 · Autodiagnósticos</a>
+    <a href="#sec3">03 · Libros</a>
+    <a href="#sec4">04 · LinkedIn</a>
+    <a href="#sec5">05 · Insignia</a>
+    <a href="#sec6">06 · Equipo</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main>
+
+  <!-- ─── SECCIÓN 1 ─── -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div>
+        <div class="section-label">Producción audiovisual original</div>
+        <h2 class="section-title">Habilidades clave para emprender e innovar</h2>
+        <p class="section-desc">Vídeo de máximo 1 minuto con mi visión personal y mis fuentes de aprendizaje.</p>
+      </div>
+    </div>
+
+    <!-- SUSTITUYE el placeholder por tu vídeo: reemplaza la URL en el src del iframe -->
+    <div class="placeholder">
+      <span class="placeholder-icon">▶</span>
+      <strong>Inserta aquí tu vídeo</strong>
+      Reemplaza este bloque con un iframe de YouTube, Vimeo o Google Drive.<br>
+      Ej: &lt;iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"&gt;&lt;/iframe&gt;
+    </div>
+    <!-- EJEMPLO DE EMBED (descomenta y pon tu URL real):
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
+    </div>
+    -->
+
+    <div class="card" style="margin-top:1.25rem">
+      <div class="card-eyebrow">Descripción y fuentes</div>
+      <p class="card-body">
+        En este vídeo exploro las habilidades que considero fundamentales para emprender e innovar a partir de lo aprendido en la asignatura. Menciono mis fuentes de aprendizaje: <em>[añade aquí tus fuentes reales]</em>.
+      </p>
+      <div style="margin-top:0.75rem">
+        <span class="chip">Creatividad</span>
+        <span class="chip">Tolerancia a la incertidumbre</span>
+        <span class="chip">Trabajo en equipo</span>
+        <span class="chip">Resiliencia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECCIÓN 2 ─── -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div>
+        <div class="section-label">Evidencia de autoevaluación</div>
+        <h2 class="section-title">Resultados de autodiagnósticos</h2>
+        <p class="section-desc">3 autodiagnósticos: competencias digitales, competencias emprendedoras y uno adicional de libre elección.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <!-- Diagnóstico 1 -->
+      <div class="card">
+        <div class="card-eyebrow">Competencias digitales</div>
+        <div class="card-title">DigComp 2.2</div>
+        <div style="margin: 1rem 0">
+          <div class="comp-row"><span class="comp-name">Información y datos</span><div class="comp-bar"><div class="comp-fill" style="width:75%"></div></div><span class="comp-score">75%</span></div>
+          <div class="comp-row"><span class="comp-name">Comunicación digital</span><div class="comp-bar"><div class="comp-fill" style="width:62%"></div></div><span class="comp-score">62%</span></div>
+          <div class="comp-row"><span class="comp-name">Creación de contenidos</span><div class="comp-bar"><div class="comp-fill" style="width:80%"></div></div><span class="comp-score">80%</span></div>
+          <div class="comp-row"><span class="comp-name">Seguridad digital</span><div class="comp-bar"><div class="comp-fill" style="width:58%"></div></div><span class="comp-score">58%</span></div>
+        </div>
+        <div class="placeholder" style="padding:0.75rem">
+          <span style="font-size:16px;opacity:0.6">📎</span><br>
+          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
+        </div>
+        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Añade aquí una reflexión breve sobre tu nivel y qué mejorarías.</em></p>
+      </div>
+
+      <!-- Diagnóstico 2 -->
+      <div class="card">
+        <div class="card-eyebrow">Competencias emprendedoras</div>
+        <div class="card-title">EntreComp</div>
+        <div style="margin: 1rem 0">
+          <div class="comp-row"><span class="comp-name">Creatividad</span><div class="comp-bar"><div class="comp-fill" style="width:70%"></div></div><span class="comp-score">70%</span></div>
+          <div class="comp-row"><span class="comp-name">Pensamiento crítico</span><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-score">65%</span></div>
+          <div class="comp-row"><span class="comp-name">Gestión de riesgo</span><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-score">55%</span></div>
+          <div class="comp-row"><span class="comp-name">Moviliz. de recursos</span><div class="comp-bar"><div class="comp-fill" style="width:68%"></div></div><span class="comp-score">68%</span></div>
+        </div>
+        <div class="placeholder" style="padding:0.75rem">
+          <span style="font-size:16px;opacity:0.6">📎</span><br>
+          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
+        </div>
+        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Añade aquí una reflexión breve sobre tus fortalezas y áreas de mejora.</em></p>
+      </div>
+
+      <!-- Diagnóstico 3 -->
+      <div class="card">
+        <div class="card-eyebrow">Diagnóstico adicional</div>
+        <div class="card-title">A elegir: p. ej. Inteligencia emocional</div>
+        <div style="margin: 1rem 0">
+          <div class="comp-row"><span class="comp-name">Autoconciencia</span><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-score">72%</span></div>
+          <div class="comp-row"><span class="comp-name">Autogestión</span><div class="comp-bar"><div class="comp-fill" style="width:60%"></div></div><span class="comp-score">60%</span></div>
+          <div class="comp-row"><span class="comp-name">Empatía</span><div class="comp-bar"><div class="comp-fill" style="width:78%"></div></div><span class="comp-score">78%</span></div>
+          <div class="comp-row"><span class="comp-name">Habilidades sociales</span><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-score">65%</span></div>
+        </div>
+        <div class="placeholder" style="padding:0.75rem">
+          <span style="font-size:16px;opacity:0.6">📎</span><br>
+          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
+        </div>
+        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Justifica por qué elegiste este autodiagnóstico y qué aprendiste.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECCIÓN 3 ─── -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div>
+        <div class="section-label">Análisis bibliográfico comparativo</div>
+        <h2 class="section-title">Vídeo resumen de libros sobre emprendimiento</h2>
+        <p class="section-desc">Comparativa crítica de los libros trabajados en clase, en 1 minuto máximo.</p>
+      </div>
+    </div>
+
+    <div class="placeholder">
+      <span class="placeholder-icon">▶</span>
+      <strong>Inserta aquí tu vídeo comparativo</strong>
+      Reemplaza con un iframe de YouTube, Vimeo o Google Drive.
+    </div>
+    <!-- EJEMPLO (descomenta):
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID_2" allowfullscreen></iframe>
+    </div>
+    -->
+
+    <div class="grid-2" style="margin-top:1.25rem">
+      <div class="card">
+        <div class="card-eyebrow">Libro 1</div>
+        <div class="card-title"><em>[Título del libro]</em></div>
+        <p class="card-body">Autor/a · Año · Editorial<br><em>Añade aquí los puntos clave, tu valoración y su utilidad práctica para ti.</em></p>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">Libro 2</div>
+        <div class="card-title"><em>[Título del libro]</em></div>
+        <p class="card-body">Autor/a · Año · Editorial<br><em>Añade aquí los puntos clave, tu valoración y su utilidad práctica para ti.</em></p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <div class="card-eyebrow">Mi visión crítica comparativa</div>
+      <p class="card-body">
+        <strong>Aspectos comunes:</strong> <em>[describe qué tienen en común ambos libros]</em><br>
+        <strong>Incoherencias o contradicciones:</strong> <em>[señala aspectos que no encajan o con los que no estás de acuerdo]</em><br>
+        <strong>Utilidad práctica para mí:</strong> <em>[qué has podido aplicar realmente de lo leído]</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── SECCIÓN 4 ─── -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div>
+        <div class="section-label">Identidad digital profesional</div>
+        <h2 class="section-title">Perfil en LinkedIn</h2>
+        <p class="section-desc">Mi identidad digital profesional, con al menos una publicación relacionada con la asignatura.</p>
+      </div>
+    </div>
+
+    <div class="li-card">
+      <div class="li-logo">in</div>
+      <div>
+        <div style="font-weight:500;font-size:15px">Tu Nombre Completo</div>
+        <div style="font-size:13px;color:#0a66c2;margin-top:2px">linkedin.com/in/tu-usuario</div>
+        <div style="font-size:13px;color:var(--ink-muted);margin-top:4px">Estudiante de Grado · Aprendiz de emprendedor/a · Pamplona</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <div class="card-eyebrow">Publicación destacada en LinkedIn</div>
+      <div class="card-title">Sobre lo aprendido en la asignatura</div>
+      <p class="card-body"><em>Describe aquí de qué trata tu publicación en LinkedIn, qué aprendizaje o experiencia compartiste y por qué decidiste publicarlo. Incluye el enlace directo a la publicación.</em></p>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="link-btn">Ver publicación en LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <!-- ─── SECCIÓN 5 ─── -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div>
+        <div class="section-label">Formación complementaria</div>
+        <h2 class="section-title">Insignia o certificado de curso breve</h2>
+        <p class="section-desc">Curso completado relacionado con innovación o emprendimiento, con reflexión sobre su aportación.</p>
+      </div>
+    </div>
+
+    <div class="badge-card">
+      <div class="badge-icon" style="font-size:28px">🏅</div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;margin-bottom:4px">Certificado obtenido</div>
+        <div style="font-weight:500;font-size:15px;color:#412402">[Nombre del curso]</div>
+        <div style="font-size:13px;color:#633806;margin-top:2px">[Plataforma: Coursera / edX / LinkedIn Learning / otra] · [Fecha]</div>
+      </div>
+    </div>
+
+    <div class="placeholder" style="margin-top:1rem">
+      <span class="placeholder-icon">🏅</span>
+      <strong>Inserta aquí la imagen de tu insignia o certificado</strong>
+      Puedes subir la imagen a GitHub junto con el HTML o enlazar desde la plataforma.
+    </div>
+    <!-- EJEMPLO (descomenta y ajusta la ruta):
+    <img src="insignia.png" alt="Certificado del curso" style="max-width:300px;margin-top:1rem;border-radius:4px;border:1px solid var(--rule)">
+    -->
+
+    <div class="card" style="margin-top:1.25rem">
+      <div class="card-eyebrow">¿Por qué lo elegí y qué me aportó?</div>
+      <p class="card-body"><em>Escribe aquí: qué te motivó a elegir este curso concreto entre todas las opciones disponibles, qué has aprendido y cómo lo has podido relacionar con la asignatura o con tu proyecto de equipo.</em></p>
+    </div>
+  </section>
+
+  <!-- ─── SECCIÓN 6 ─── -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div>
+        <div class="section-label">Trabajo colaborativo</div>
+        <h2 class="section-title">Site del equipo</h2>
+        <p class="section-desc">Reflexión sobre el trabajo en equipo y enlace al site colectivo.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#0F6E56;margin-bottom:0.75rem">Mi reflexión sobre el trabajo en equipo</div>
+      <p style="font-size:15px;color:#085041;line-height:1.7"><em>
+        Describe en 3–5 frases qué ha implicado este trabajo en equipo para ti: dificultades, aprendizajes, momentos clave. ¿Qué resultados habéis conseguido juntos? ¿Qué consejos darías a otros equipos que trabajan en proyectos de innovación?
+      </em></p>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <div class="card-eyebrow">Enlace al site del equipo</div>
+      <div class="card-title">[Nombre del proyecto de equipo]</div>
+      <p class="card-body"><em>Breve descripción del proyecto: qué problema abordasteis, qué solución propusisteis y cuáles fueron vuestros resultados principales.</em></p>
+      <a href="#" class="link-btn green">Visitar el site del equipo ↗</a>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">Miembros del equipo</div>
+      <div class="grid-2" style="margin-top:0.75rem">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
+          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">TN</div>
+          <div><div style="font-size:13px;font-weight:500">Tu nombre</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
+          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C2</div>
+          <div><div style="font-size:13px;font-weight:500">Compañero/a 2</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
+          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C3</div>
+          <div><div style="font-size:13px;font-weight:500">Compañero/a 3</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
+          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C4</div>
+          <div><div style="font-size:13px;font-weight:500">Compañero/a 4</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CHECKLIST ─── -->
+  <section class="section" id="checklist">
+    <div class="section-header">
+      <div class="section-num" style="color:#d8d0c4">✓</div>
+      <div>
+        <div class="section-label">Estado del portfolio</div>
+        <h2 class="section-title">Checklist de entrega</h2>
+      </div>
+    </div>
+    <ul class="checklist">
+      <li><span class="check">○</span> Vídeo habilidades clave para emprender (máx. 1 min)</li>
+      <li><span class="check">○</span> Autodiagnóstico: competencias digitales</li>
+      <li><span class="check">○</span> Autodiagnóstico: competencias emprendedoras</li>
+      <li><span class="check">○</span> Autodiagnóstico adicional libre</li>
+      <li><span class="check">○</span> Vídeo resumen comparativo de libros (máx. 1 min)</li>
+      <li><span class="check">○</span> Perfil LinkedIn con publicación activa</li>
+      <li><span class="check">○</span> Insignia o certificado de curso + reflexión</li>
+      <li><span class="check">○</span> Enlace al site del equipo + introducción reflexiva</li>
+      <li><span class="check">○</span> Enlace a este portfolio incluido en el site del equipo</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Portfolio digital · <strong>Tu Nombre</strong> · Innovación y Emprendimiento · 2024–25</p>
+  <p style="margin-top:6px">Publicado con <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:rgba(248,245,240,0.55)">GitHub Pages</a></p>
+</footer>
+
+</body>
+</html>
