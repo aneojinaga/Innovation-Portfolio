@@ -181,6 +181,36 @@
     }
     .about-meta strong { color: var(--ink); font-weight: 500; }
 
+    /* ── GALERÍA SOBRE MÍ ── */
+    .about-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .about-gallery-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .about-gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%);
+      display: block;
+      transition: filter 0.3s;
+    }
+    .about-gallery-item:hover img { filter: grayscale(0%); }
+    .gallery-caption {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 600px) { .about-gallery { grid-template-columns: 1fr; } }
+
     /* ── 02 HABILIDADES ── */
     #habilidades { background: none; }
     #habilidades .grid2 {
@@ -403,7 +433,47 @@
     .book-comparison textarea::placeholder { color: var(--ink-soft); }
     @media (max-width: 860px) { .books-grid { grid-template-columns: 1fr; } }
 
-    .li-post-wrap { flex: 1; min-width: 300px; max-width: 480px; }
+    /* ── MENTORES ── */
+    .mentors-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .mentor-card {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 18px;
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      background: var(--bg);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .mentor-card:hover { border-color: var(--accent); background: var(--accent-light); }
+    .mentor-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink-mid);
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mentor-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 50%; display: block; }
+    .mentor-card:hover .mentor-avatar { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .mentor-info { display: flex; flex-direction: column; gap: 2px; }
+    .mentor-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; line-height: 1.2; }
+    .mentor-company { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+    .mentor-lesson { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.65; font-style: italic; }
+    @media (max-width: 1000px) { .mentors-track { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .mentors-track { grid-template-columns: 1fr; } }
     .li-post-card {
       background: rgba(249,248,246,0.07);
       border: 1px solid rgba(249,248,246,0.15);
@@ -693,6 +763,7 @@
       <li><a href="#habilidades">Habilidades</a></li>
       <li><a href="#autodiag">Autodiagnóstico</a></li>
       <li><a href="#libros">Libros</a></li>
+      <li><a href="#mentores">Mentores</a></li>
       <li><a href="#linkedin-sec">LinkedIn</a></li>
       <li><a href="#certs">Certificados</a></li>
       <li><a href="#equipo">Equipo</a></li>
@@ -718,6 +789,22 @@
           <span><strong>Universidad:</strong> Universidad de Navarra</span>
           <span><strong>Ubicación:</strong> Pamplona, España</span>
         </div>
+      </div>
+    </div>
+
+    <!-- GALERÍA DE FOTOS -->
+    <div class="about-gallery fade-in">
+      <div class="about-gallery-item">
+        <img src="uploads/20230917142329-2.jpg" alt="Familia" style="width: 450px" />
+        <p class="gallery-caption">Mi familia</p>
+      </div>
+      <div class="about-gallery-item">
+        <img src="uploads/IMG_3528 2.JPG" alt="Amigas" style="width: 300px" />
+        <p class="gallery-caption">Mis amigas</p>
+      </div>
+      <div class="about-gallery-item">
+        <img src="uploads/IMG_0584.JPG" alt="Mis hermanas y yo" style="width: 340px" />
+        <p class="gallery-caption">Mis hermanas y yo</p>
       </div>
     </div>
   </section>
@@ -795,7 +882,8 @@
         <p class="diag-card-title">Roles de equipo (Belbin)</p>
         <h3>Finalizadora</h3>
         <p class="diag-sub">Diagnóstico de roles en entornos de equipo</p>
-        <a class="diag-link" href="uploads/Roles.png" target="_blank">
+        <textarea class="book-field" rows="5" placeholder="Escribe aquí tus reflexiones sobre tu rol de Belbin..." style="margin-top:8px;width:100%;"></textarea>
+        <a class="diag-link" href="uploads/Roles.png" target="_blank" style="margin-top:12px;">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver resultado
         </a>
@@ -879,7 +967,74 @@
     </div>
   </section>
 
-  <!-- 05 LINKEDIN -->
+  <div class="section-divider"></div>
+
+  <!-- 04b MENTORES -->
+  <section id="mentores">
+    <p class="section-label fade-in">05 &mdash; Aprendizajes clave</p>
+    <h2 class="fade-in">Lo que me han<br><em style="font-style:italic;color:var(--accent)">enseñado</em></h2>
+    <div class="mentors-track fade-in">
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/ana-martinez-yenxa-300x300.jpg" alt="Ana Martínez" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Ana Martínez</p>
+          <p class="mentor-company">Yenxa</p>
+          <p class="mentor-lesson">Emprender es una montaña rusa real, y la clave está en saber pivotar con resiliencia cuando las cosas no salen como esperabas.</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/Inigo Benito.jpeg" alt="Iñigo Benito" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Iñigo Benito Simón-Ricart</p>
+          <p class="mentor-company">Human AI</p>
+          <p class="mentor-lesson">La proactividad y confiar en el equipo son fundamentales; emprender en solitario no tiene ningún sentido.</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/Victor Iriarte.jpeg" alt="Víctor Iriarte" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Víctor Iriarte</p>
+          <p class="mentor-company">Caja Rural</p>
+          <p class="mentor-lesson">Una buena idea sin una buena presentación no llega a ningún lado; comunicar bien tu proyecto es tan importante como el proyecto en sí.</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/patxi Larumbe.jpeg" alt="Patxi Larumbe" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Patxi Larumbe</p>
+          <p class="mentor-company">Cocuus</p>
+          <p class="mentor-lesson">La innovación real nace de la capacidad de pivotar hasta encontrar el verdadero problema que resolver.</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/csm_nora_alonso_dfd4a853ce.jpg" alt="Nora Alonso" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Nora Alonso</p>
+          <p class="mentor-company">Sector Agroalimentario</p>
+          <p class="mentor-lesson">Innovar en alimentación no es opcional, es necesario para sostener el sistema detrás de algo tan cotidiano como ¿qué comemos hoy?</p>
+        </div>
+      </div>
+
+      <div class="mentor-card">
+        <div class="mentor-avatar"><img src="uploads/Elias rodriguez.jpeg" alt="Elías Rodríguez" /></div>
+        <div class="mentor-info">
+          <p class="mentor-name">Elías Rodríguez Toral</p>
+          <p class="mentor-company">AIN</p>
+          <p class="mentor-lesson">Innovar es convertir conocimiento en dinero: detrás de cada medicamento hay una media de 10.000 intentos fallidos, lo que hace que la paciencia y la protección del conocimiento sean esenciales.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 06 LINKEDIN -->
   <section id="linkedin-sec" style="padding:0;max-width:100%;">
     <div class="inner" style="max-width:100%;padding:80px 48px;">
       <div>
