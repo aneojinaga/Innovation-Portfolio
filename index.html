@@ -348,36 +348,11 @@
       aspect-ratio: 2/3;
       background: var(--bg2);
       overflow: hidden;
-      cursor: pointer;
     }
     .book-cover-wrap img {
       width: 100%; height: 100%; object-fit: cover;
       display: block;
     }
-    .book-cover-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 8px; color: var(--ink-soft);
-      font-size: 0.72rem; letter-spacing: 0.08em;
-      text-transform: uppercase; text-align: center;
-      padding: 16px;
-    }
-    .book-cover-placeholder svg { width: 28px; height: 28px; stroke: var(--ink-soft); fill: none; stroke-width: 1.5; }
-    .book-cover-upload {
-      position: absolute; inset: 0;
-      opacity: 0; cursor: pointer;
-      width: 100%; height: 100%;
-    }
-    .book-cover-overlay {
-      position: absolute; inset: 0;
-      background: rgba(17,17,16,0.5);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.2s;
-      color: #fff; font-size: 0.72rem; letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .book-cover-wrap:hover .book-cover-overlay { opacity: 1; }
     .book-fields {
       padding: 20px;
       display: flex;
@@ -387,19 +362,14 @@
     }
     .book-field {
       width: 100%;
-      background: none;
-      border: none;
       border-bottom: 1px solid var(--border);
       font-family: var(--font-body);
       font-size: 0.85rem;
       color: var(--ink);
       padding: 6px 0;
-      outline: none;
-      resize: none;
       line-height: 1.5;
+      margin: 0;
     }
-    .book-field::placeholder { color: var(--ink-soft); }
-    .book-field:focus { border-bottom-color: var(--accent); }
     .book-field.title {
       font-family: var(--font-display);
       font-size: 1.1rem;
@@ -418,19 +388,13 @@
       margin-bottom: 12px;
       font-weight: 500;
     }
-    .book-comparison textarea {
+    .book-comparison-text {
       width: 100%;
-      min-height: 140px;
-      background: none;
-      border: none;
       font-family: var(--font-body);
       font-size: 0.9rem;
       color: var(--ink);
       line-height: 1.75;
-      outline: none;
-      resize: vertical;
     }
-    .book-comparison textarea::placeholder { color: var(--ink-soft); }
     @media (max-width: 860px) { .books-grid { grid-template-columns: 1fr; } }
 
     /* ── MENTORES ── */
@@ -494,19 +458,11 @@
     .li-post-meta { font-size: 0.75rem; color: rgba(249,248,246,0.45); margin-top: 2px; }
     .li-post-text {
       width: 100%;
-      min-height: 120px;
-      background: rgba(249,248,246,0.05);
-      border: 1px solid rgba(249,248,246,0.1);
       color: rgba(249,248,246,0.8);
       font-family: var(--font-body);
       font-size: 0.85rem;
       line-height: 1.7;
-      padding: 12px;
-      outline: none;
-      resize: vertical;
     }
-    .li-post-text::placeholder { color: rgba(249,248,246,0.3); }
-    .li-post-text:focus { border-color: var(--accent); }
     .li-post-link {
       font-size: 0.75rem;
       letter-spacing: 0.08em;
@@ -882,7 +838,6 @@
         <p class="diag-card-title">Roles de equipo (Belbin)</p>
         <h3>Finalizadora</h3>
         <p class="diag-sub">Diagnóstico de roles en entornos de equipo</p>
-        <textarea class="book-field" rows="5" placeholder="Escribe aquí tus reflexiones sobre tu rol de Belbin..." style="margin-top:8px;width:100%;"></textarea>
         <a class="diag-link" href="uploads/Roles.png" target="_blank" style="margin-top:12px;">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver resultado
@@ -915,46 +870,34 @@
 
       <!-- LIBRO 1 -->
       <div class="book-card">
-        <div class="book-cover-wrap" id="cover-wrap-1">
-          <div class="book-cover-placeholder" id="cover-placeholder-1" style="display:none;"></div>
-          <img id="cover-img-1" alt="El Arte de Empezar 2.0" src="uploads/ElArte de Empezar.webp" style="width:100%;height:100%;object-fit:cover;display:block;" />
-          <div class="book-cover-overlay">Cambiar imagen</div>
-          <input type="file" accept="image/*" class="book-cover-upload" data-target="1" />
+        <div class="book-cover-wrap">
+          <img alt="El Arte de Empezar 2.0" src="uploads/ElArte de Empezar.webp" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="book-fields">
-          <input class="book-field title" type="text" placeholder="Título del libro" value="El Arte de Empezar 2.0" />
-          <input class="book-field" type="text" placeholder="Autor/a" value="Guy Kawasaki" />
-          <textarea class="book-field" rows="4" placeholder="Ideas clave, aprendizajes y reflexiones sobre este libro..."></textarea>
+          <p class="book-field title">El Arte de Empezar 2.0</p>
+          <p class="book-field">Guy Kawasaki</p>
         </div>
       </div>
 
       <!-- LIBRO 2 -->
       <div class="book-card">
-        <div class="book-cover-wrap" id="cover-wrap-2">
-          <div class="book-cover-placeholder" id="cover-placeholder-2" style="display:none;"></div>
-          <img id="cover-img-2" alt="El Libro Negro del Emprendedor" src="uploads/ElLibroNegroDelEmprendedor.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" />
-          <div class="book-cover-overlay">Cambiar imagen</div>
-          <input type="file" accept="image/*" class="book-cover-upload" data-target="2" />
+        <div class="book-cover-wrap">
+          <img alt="El Libro Negro del Emprendedor" src="uploads/ElLibroNegroDelEmprendedor.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="book-fields">
-          <input class="book-field title" type="text" placeholder="Título del libro" value="El Libro Negro del Emprendedor" />
-          <input class="book-field" type="text" placeholder="Autor/a" value="Fernando Trías de Bes" />
-          <textarea class="book-field" rows="4" placeholder="Ideas clave, aprendizajes y reflexiones sobre este libro..."></textarea>
+          <p class="book-field title">El Libro Negro del Emprendedor</p>
+          <p class="book-field">Fernando Trías de Bes</p>
         </div>
       </div>
 
       <!-- LIBRO 3 -->
       <div class="book-card">
-        <div class="book-cover-wrap" id="cover-wrap-3">
-          <div class="book-cover-placeholder" id="cover-placeholder-3" style="display:none;"></div>
-          <img id="cover-img-3" alt="Potencial Oculto" src="uploads/PotencialOculto.webp" style="width:100%;height:100%;object-fit:cover;display:block;" />
-          <div class="book-cover-overlay">Cambiar imagen</div>
-          <input type="file" accept="image/*" class="book-cover-upload" data-target="3" />
+        <div class="book-cover-wrap">
+          <img alt="Potencial Oculto" src="uploads/PotencialOculto.webp" style="width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
         <div class="book-fields">
-          <input class="book-field title" type="text" placeholder="Título del libro" value="Potencial Oculto" />
-          <input class="book-field" type="text" placeholder="Autor/a" value="Adam Grant" />
-          <textarea class="book-field" rows="4" placeholder="Ideas clave, aprendizajes y reflexiones sobre este libro..."></textarea>
+          <p class="book-field title">Potencial Oculto</p>
+          <p class="book-field">Adam Grant</p>
         </div>
       </div>
 
@@ -963,7 +906,7 @@
     <!-- COMPARACION CRITICA -->
     <div class="book-comparison fade-in">
       <p class="book-comparison-label">Comparación crítica entre los tres libros</p>
-      <textarea placeholder="Reflexiona sobre los tres libros: puntos en común, diferencias de enfoque, cuál te ha aportado más y por qué..."></textarea>
+      <p class="book-comparison-text"></p>
     </div>
   </section>
 
@@ -1061,7 +1004,7 @@
             </div>
           </div>
           <div class="li-post-body">
-            <textarea class="li-post-text" placeholder="Pega aquí el texto de tu publicación destacada sobre la asignatura..."></textarea>
+            <p class="li-post-text"></p>
           </div>
           <a href="https://www.linkedin.com/in/aneojinagaayerra/" target="_blank" rel="noopener" class="li-post-link">Ver en LinkedIn ↗</a>
         </div>
@@ -1249,24 +1192,6 @@
   </footer>
 
   <script>
-    // Book cover uploads
-    document.querySelectorAll('.book-cover-upload').forEach(input => {
-      input.addEventListener('change', function() {
-        const id = this.dataset.target;
-        const file = this.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = e => {
-          const img = document.getElementById('cover-img-' + id);
-          const placeholder = document.getElementById('cover-placeholder-' + id);
-          img.src = e.target.result;
-          img.style.display = 'block';
-          placeholder.style.display = 'none';
-        };
-        reader.readAsDataURL(file);
-      });
-    });
-
     // Intersection Observer for fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
