@@ -3,858 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Competencias Emprendedoras e Innovación</title>
+<title>Portfolio — Ane Ojinaga Ayerra</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1714;
-    --ink-soft: #4a4642;
-    --ink-muted: #8a8480;
-    --paper: #f8f5f0;
-    --paper-warm: #f0ebe3;
-    --paper-card: #fdfaf6;
-    --accent: #2d5a3d;
-    --accent-light: #e8f2eb;
-    --accent-mid: #5a8f6a;
-    --amber: #c17f3e;
-    --amber-light: #faf0e2;
-    --rule: #d8d0c4;
-    --radius: 3px;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-muted: #7a7a7a;
+    --paper: #fcfaf7;
+    --paper-warm: #f2ede4;
+    --paper-card: #ffffff;
+    --accent: #1e3d2b; /* Verde bosque profundo */
+    --accent-light: #e9f0eb;
+    --accent-mid: #4a7c59;
+    --amber: #b07d4a;
+    --rule: #e0d8cf;
+    --radius: 8px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--paper);
     color: var(--ink);
-    font-size: 16px;
     line-height: 1.7;
   }
 
-  /* ---- HEADER ---- */
+  /* ---- NUEVO HEADER PROFESIONAL ---- */
   header {
-    background: var(--ink);
+    background: linear-gradient(135deg, #1e3d2b 0%, #0f1f16 100%);
     color: var(--paper);
-    padding: 5rem 2rem 4rem;
+    padding: 6rem 2rem;
     text-align: center;
     position: relative;
-    overflow: hidden;
   }
 
-  header::before {
-    content: '';
+  /* Decoración sutil en lugar de cuadrados */
+  header::after {
+    content: "";
     position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      0deg, transparent, transparent 39px,
-      rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px
-    ),
-    repeating-linear-gradient(
-      90deg, transparent, transparent 39px,
-      rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px
-    );
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--paper), transparent);
   }
 
   .header-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.18em;
+    font-size: 12px;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--accent-mid);
-    margin-bottom: 1.25rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .header-eyebrow::before,
-  .header-eyebrow::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--accent-mid);
-    opacity: 0.5;
+    color: #a8c69f;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
   }
 
   header h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
     font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    position: relative;
-    color: var(--paper);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
   }
 
-  header h1 em {
-    font-style: italic;
-    color: #c8d8b8;
-  }
+  header h1 em { color: #d4e3cf; font-style: italic; }
 
-  .header-subtitle {
-    font-size: 15px;
-    color: rgba(248,245,240,0.55);
-    max-width: 520px;
+  .profile-img-container {
+    width: 130px;
+    height: 130px;
     margin: 0 auto 2rem;
-    position: relative;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    background: #2a4d38;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   }
 
-  .header-meta {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
+  .profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .tag {
-    font-size: 12px;
-    padding: 4px 12px;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 999px;
-    color: rgba(248,245,240,0.6);
-    letter-spacing: 0.02em;
-  }
-
-  /* ---- NAV ---- */
+  /* ---- NAVEGACIÓN ---- */
   nav {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: var(--paper-card);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
-    padding: 0 2rem;
   }
 
   .nav-inner {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    gap: 0;
+    justify-content: center;
     overflow-x: auto;
-    scrollbar-width: none;
   }
 
-  .nav-inner::-webkit-scrollbar { display: none; }
-
   nav a {
-    display: block;
-    padding: 14px 16px;
+    padding: 1.2rem 1rem;
     font-size: 13px;
+    font-weight: 500;
     color: var(--ink-muted);
     text-decoration: none;
     white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
+    transition: 0.3s;
   }
 
-  nav a:hover {
-    color: var(--ink);
-    border-bottom-color: var(--rule);
-  }
+  nav a:hover { color: var(--accent); }
 
-  /* ---- MAIN LAYOUT ---- */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem 6rem;
-  }
+  /* ---- SECCIONES ---- */
+  main { max-width: 950px; margin: 0 auto; padding: 2rem; }
 
-  /* ---- SECTION ---- */
-  .section {
-    padding: 4rem 0 0;
-  }
+  .section { padding: 6rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .section:last-child { border-bottom: none; }
 
-  .section-header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 1.5rem;
-    align-items: start;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3rem;
-    color: var(--rule);
+  .section-header { margin-bottom: 3rem; }
+  .section-num { 
+    font-family: 'DM Serif Display', serif; 
+    font-size: 4rem; 
+    color: var(--rule); 
     line-height: 1;
-    margin-top: 4px;
-    user-select: none;
+    margin-bottom: 0.5rem;
   }
-
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent-mid);
-    margin-bottom: 6px;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--ink);
-  }
-
-  .section-desc {
-    margin-top: 6px;
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.6;
-  }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 1rem; }
 
   /* ---- CARDS ---- */
   .card {
     background: var(--paper-card);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .card-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .card-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-body {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-
-  /* ---- PLACEHOLDER ---- */
-  .placeholder {
-    border: 1.5px dashed var(--rule);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    text-align: center;
-    color: var(--ink-muted);
-    font-size: 14px;
-    background: var(--paper-warm);
-    margin-top: 1rem;
-  }
-
-  .placeholder-icon {
-    display: block;
-    font-size: 22px;
-    margin-bottom: 8px;
-    opacity: 0.6;
-  }
-
-  .placeholder strong {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink-soft);
-    margin-bottom: 4px;
-  }
-
-  /* ---- VIDEO EMBED ---- */
-  .video-wrapper {
+    padding: 2rem;
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: var(--radius);
-    background: var(--ink);
-    margin-top: 1rem;
+    transition: transform 0.3s ease;
   }
 
-  .video-wrapper iframe {
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: b;
+  }
+
+  .book-img {
+    width: 60px;
+    height: 90px;
+    background: var(--paper-warm);
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    top: 1.5rem;
+    right: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+    object-fit: cover;
   }
 
-  /* ---- GRID ---- */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1rem;
-  }
-
-  /* ---- COMPETENCY BAR ---- */
-  .comp-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .comp-name {
-    font-size: 13px;
-    color: var(--ink-soft);
-    min-width: 160px;
-  }
-
-  .comp-bar {
-    flex: 1;
-    height: 5px;
-    background: var(--paper-warm);
-    border-radius: 99px;
+  .logo-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     overflow: hidden;
+    background: white;
     border: 1px solid var(--rule);
-  }
-
-  .comp-fill {
-    height: 100%;
-    border-radius: 99px;
-    background: var(--accent);
-    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  .comp-score {
-    font-size: 12px;
-    color: var(--ink-muted);
-    min-width: 30px;
-    text-align: right;
-  }
-
-  /* ---- BADGE ---- */
-  .badge-card {
-    background: var(--amber-light);
-    border: 1px solid #e8cc9a;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .badge-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--amber);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    color: white;
   }
 
-  /* ---- LINKEDIN ---- */
-  .li-card {
-    background: #f0f4fa;
-    border: 1px solid #c8d8ee;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
+  .logo-circle img { width: 70%; height: auto; }
 
-  .li-logo {
-    width: 44px;
-    height: 44px;
-    background: #0a66c2;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    font-family: 'Georgia', serif;
-    flex-shrink: 0;
-  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
 
-  /* ---- TEAM SECTION ---- */
-  .team-card {
-    background: var(--accent-light);
-    border: 1px solid #bdd8c5;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-  }
+  /* ---- INFO PERSONAL ---- */
+  .about-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; }
+  .about-text h3 { margin-bottom: 1rem; color: var(--accent); }
+  
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+  .chip { background: var(--accent-light); color: var(--accent); padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; }
 
-  /* ---- CHECKLIST ---- */
-  .checklist {
-    list-style: none;
-    margin-top: 1.5rem;
-  }
+  .contact-link { display: block; margin-bottom: 1rem; color: var(--accent); font-weight: 500; text-decoration: none; font-size: 1.1rem; }
 
-  .checklist li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-
-  .checklist li:last-child { border-bottom: none; }
-
-  .check {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1.5px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 11px;
-    color: var(--ink-muted);
-    background: var(--paper-card);
-  }
-
-  .check.done {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-  }
-
-  /* ---- LINK BUTTON ---- */
-  .link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 18px;
-    border: 1px solid var(--ink);
-    border-radius: var(--radius);
-    font-size: 13px;
-    color: var(--ink);
-    text-decoration: none;
-    margin-top: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .link-btn:hover {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .link-btn.green {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .link-btn.green:hover {
-    background: var(--accent);
-    color: white;
-  }
-
-  /* ---- CHIP ---- */
-  .chip {
-    display: inline-block;
-    padding: 3px 10px;
-    background: var(--paper-warm);
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    font-size: 12px;
-    color: var(--ink-soft);
-    margin: 2px;
-  }
-
-  /* ---- FOOTER ---- */
-  footer {
-    background: var(--ink);
-    color: rgba(248,245,240,0.45);
-    text-align: center;
-    padding: 2.5rem;
-    font-size: 13px;
-  }
-
-  footer strong { color: rgba(248,245,240,0.7); }
-
-  /* ---- ANIMATIONS ---- */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .section {
-    animation: fadeUp 0.5s ease both;
-  }
-
-  /* ---- RESPONSIVE ---- */
-  @media (max-width: 600px) {
-    header { padding: 3.5rem 1.25rem 3rem; }
-    main { padding: 0 1.25rem 4rem; }
-    nav { padding: 0 1.25rem; }
-    .section-num { font-size: 2.2rem; }
-    .section-title { font-size: 1.35rem; }
+  @media (max-width: 768px) {
+    .about-container { grid-template-columns: 1fr; }
+    header { padding: 4rem 1rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════ HEADER ═══════════════════ -->
 <header>
-  <div class="header-eyebrow">Portfolio Digital</div>
-
-  <!-- FOTO DE PERFIL -->
-  <div style="width:110px;height:110px;border-radius:50%;border:3px solid rgba(255,255,255,0.2);margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.07);position:relative">
-    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.35)"/>
-      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-    </svg>
-    <div style="position:absolute;bottom:4px;right:4px;width:22px;height:22px;background:#5a8f6a;border-radius:50%;border:2px solid #1a1714;display:flex;align-items:center;justify-content:center">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
-    </div>
+  <div class="header-eyebrow">Portfolio Profesional</div>
+  <div class="profile-img-container">
+    <img src="https://via.placeholder.com/150" alt="Ane Ojinaga">
   </div>
-
   <h1>Ane<br><em>Ojinaga Ayerra</em></h1>
-  <p class="header-subtitle">Evidencias digitales de aprendizaje · Grado ADE con Innovación y Emprendimiento</p>
-  <div class="header-meta">
-    <span class="tag">Curso 2025-2026</span>
-    <span class="tag">Asignatura: Competencias emprendedoras</span>
-  </div>
+  <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">ADE + Innovación y Emprendimiento · Universidad de Navarra</p>
 </header>
 
-<!-- ═══════════════════ NAV ═══════════════════ -->
 <nav>
   <div class="nav-inner">
-    <a href="#sec1">01 · Video habilidades</a>
-    <a href="#sec2">02 · Autodiagnósticos</a>
-    <a href="#sec3">03 · Libros</a>
-    <a href="#sec4">04 · LinkedIn</a>
-    <a href="#sec5">05 · Insignia</a>
-    <a href="#sec6">06 · Equipo</a>
+    <a href="#sec-about">01 Sobre mí</a>
+    <a href="#sec-video">02 Habilidades</a>
+    <a href="#sec-diag">03 Diagnóstico</a>
+    <a href="#sec-books">04 Libros</a>
+    <a href="#sec-li">05 LinkedIn</a>
+    <a href="#sec-cert">06 Cursos</a>
+    <a href="#sec-contact">07 Contacto</a>
   </div>
 </nav>
 
-<!-- ═══════════════════ MAIN ═══════════════════ -->
 <main>
 
-  <!-- ─── SECCIÓN 1 ─── -->
-  <section class="section" id="sec1">
-    <div class="section-header">
-      <div class="section-num">01</div>
+  <section class="section" id="sec-about">
+    <div class="section-num">01</div>
+    <h2 class="section-title">Sobre mí</h2>
+    <div class="about-container">
       <div>
-        <div class="section-label">Producción audiovisual original</div>
-        <h2 class="section-title">Habilidades clave para emprender e innovar</h2>
-        <p class="section-desc">Vídeo con mi visión personal y mis fuentes de aprendizaje.</p>
+        <div class="card" style="padding: 10px;">
+            <img src="https://via.placeholder.com/400x500" alt="Mi vida" style="width: 100%; border-radius: 4px;">
+        </div>
       </div>
-    </div>
+      <div class="about-text">
+        <h3>Mi trayectoria</h3>
+        <p>Hola, soy Ane. Actualmente curso el Grado en ADE con la especialidad en Innovación y Emprendimiento. Me apasiona buscar soluciones creativas a problemas reales y aprender constantemente sobre el ecosistema empresarial digital.</p>
+        
+        <h3 style="margin-top: 2rem;">Idiomas</h3>
+        <div class="tag-group">
+          <span class="chip">Español (Nativo)</span>
+          <span class="chip">Euskera (C1)</span>
+          <span class="chip">Inglés (Advanced)</span>
+          <span class="chip">Francés (B2)</span>
+        </div>
 
-    <!-- SUSTITUYE el placeholder por tu vídeo: reemplaza la URL en el src del iframe -->
-    <div class="placeholder">
-      <span class="placeholder-icon">▶</span>
-      <strong>Inserta aquí tu vídeo</strong>
-      Reemplaza este bloque con un iframe de YouTube, Vimeo o Google Drive.<br>
-      Ej: &lt;iframe src="https://www.youtube.com/embed/TU_VIDEO_ID"&gt;&lt;/iframe&gt;
-    </div>
-    <!-- EJEMPLO DE EMBED (descomenta y pon tu URL real):
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
-    </div>
-    -->
-
-    <div class="card" style="margin-top:1.25rem">
-      <div class="card-eyebrow">Descripción y fuentes</div>
-      <p class="card-body">
-        En este vídeo exploro las habilidades que considero fundamentales para emprender e innovar a partir de lo aprendido en la asignatura. Menciono mis fuentes de aprendizaje: <em>[añade aquí tus fuentes reales]</em>.
-      </p>
-      <div style="margin-top:0.75rem">
-        <span class="chip">Creatividad</span>
-        <span class="chip">Tolerancia a la incertidumbre</span>
-        <span class="chip">Trabajo en equipo</span>
-        <span class="chip">Resiliencia</span>
+        <h3 style="margin-top: 2rem;">Formación Académica</h3>
+        <ul style="list-style: none;">
+          <li><strong>Grado en ADE + Innovación</strong><br>Universidad de Navarra · 2022 — Presente</li>
+          <li style="margin-top: 10px;"><strong>Bachillerato de Ciencias Sociales</strong><br>Nombre de tu centro · 2020 — 2022</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ─── SECCIÓN 2 ─── -->
-  <section class="section" id="sec2">
-    <div class="section-header">
-      <div class="section-num">02</div>
-      <div>
-        <div class="section-label">Evidencia de autoevaluación</div>
-        <h2 class="section-title">Resultados de autodiagnósticos</h2>
-        <p class="section-desc">3 autodiagnósticos sobre competencias digitales, competencias emprendedoras, etc.</p>
-      </div>
-    </div>
-
-    <div class="grid-3">
-      <!-- Diagnóstico 1 -->
-      <div class="card">
-        <div class="card-eyebrow">Competencias digitales</div>
-        <div class="card-title">DigComp 2.2</div>
-        <div style="margin: 1rem 0">
-          <div class="comp-row"><span class="comp-name">Información y datos</span><div class="comp-bar"><div class="comp-fill" style="width:75%"></div></div><span class="comp-score">75%</span></div>
-          <div class="comp-row"><span class="comp-name">Comunicación digital</span><div class="comp-bar"><div class="comp-fill" style="width:62%"></div></div><span class="comp-score">62%</span></div>
-          <div class="comp-row"><span class="comp-name">Creación de contenidos</span><div class="comp-bar"><div class="comp-fill" style="width:80%"></div></div><span class="comp-score">80%</span></div>
-          <div class="comp-row"><span class="comp-name">Seguridad digital</span><div class="comp-bar"><div class="comp-fill" style="width:58%"></div></div><span class="comp-score">58%</span></div>
-        </div>
-        <div class="placeholder" style="padding:0.75rem">
-          <span style="font-size:16px;opacity:0.6">📎</span><br>
-          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
-        </div>
-        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Añade aquí una reflexión breve sobre tu nivel y qué mejorarías.</em></p>
-      </div>
-
-      <!-- Diagnóstico 2 -->
-      <div class="card">
-        <div class="card-eyebrow">Competencias emprendedoras</div>
-        <div class="card-title">EntreComp</div>
-        <div style="margin: 1rem 0">
-          <div class="comp-row"><span class="comp-name">Creatividad</span><div class="comp-bar"><div class="comp-fill" style="width:70%"></div></div><span class="comp-score">70%</span></div>
-          <div class="comp-row"><span class="comp-name">Pensamiento crítico</span><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-score">65%</span></div>
-          <div class="comp-row"><span class="comp-name">Gestión de riesgo</span><div class="comp-bar"><div class="comp-fill" style="width:55%"></div></div><span class="comp-score">55%</span></div>
-          <div class="comp-row"><span class="comp-name">Moviliz. de recursos</span><div class="comp-bar"><div class="comp-fill" style="width:68%"></div></div><span class="comp-score">68%</span></div>
-        </div>
-        <div class="placeholder" style="padding:0.75rem">
-          <span style="font-size:16px;opacity:0.6">📎</span><br>
-          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
-        </div>
-        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Añade aquí una reflexión breve sobre tus fortalezas y áreas de mejora.</em></p>
-      </div>
-
-      <!-- Diagnóstico 3 -->
-      <div class="card">
-        <div class="card-eyebrow">Diagnóstico adicional</div>
-        <div class="card-title">A elegir: p. ej. Inteligencia emocional</div>
-        <div style="margin: 1rem 0">
-          <div class="comp-row"><span class="comp-name">Autoconciencia</span><div class="comp-bar"><div class="comp-fill" style="width:72%"></div></div><span class="comp-score">72%</span></div>
-          <div class="comp-row"><span class="comp-name">Autogestión</span><div class="comp-bar"><div class="comp-fill" style="width:60%"></div></div><span class="comp-score">60%</span></div>
-          <div class="comp-row"><span class="comp-name">Empatía</span><div class="comp-bar"><div class="comp-fill" style="width:78%"></div></div><span class="comp-score">78%</span></div>
-          <div class="comp-row"><span class="comp-name">Habilidades sociales</span><div class="comp-bar"><div class="comp-fill" style="width:65%"></div></div><span class="comp-score">65%</span></div>
-        </div>
-        <div class="placeholder" style="padding:0.75rem">
-          <span style="font-size:16px;opacity:0.6">📎</span><br>
-          <span style="font-size:12px">Adjunta captura o enlace al resultado</span>
-        </div>
-        <p class="card-body" style="margin-top:0.75rem;font-size:13px"><em>Justifica por qué elegiste este autodiagnóstico y qué aprendiste.</em></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── SECCIÓN 3 ─── -->
-  <section class="section" id="sec3">
-    <div class="section-header">
-      <div class="section-num">03</div>
-      <div>
-        <div class="section-label">Análisis bibliográfico comparativo</div>
-        <h2 class="section-title">Vídeo resumen de libros sobre emprendimiento</h2>
-        <p class="section-desc">Comparativa crítica de los libros trabajados en clase.</p>
-      </div>
-    </div>
-
-    <div class="placeholder">
-      <span class="placeholder-icon">▶</span>
-      <strong>Inserta aquí tu vídeo comparativo</strong>
-      Reemplaza con un iframe de YouTube, Vimeo o Google Drive.
-    </div>
-    <!-- EJEMPLO (descomenta):
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID_2" allowfullscreen></iframe>
-    </div>
-    -->
-
-    <div class="grid-2" style="margin-top:1.25rem">
-      <div class="card">
-        <div class="card-eyebrow">Libro 1</div>
-        <div class="card-title"><em>[Título del libro]</em></div>
-        <p class="card-body">Autor/a · Año · Editorial<br><em>Añade aquí los puntos clave, tu valoración y su utilidad práctica para ti.</em></p>
-      </div>
-      <div class="card">
-        <div class="card-eyebrow">Libro 2</div>
-        <div class="card-title"><em>[Título del libro]</em></div>
-        <p class="card-body">Autor/a · Año · Editorial<br><em>Añade aquí los puntos clave, tu valoración y su utilidad práctica para ti.</em></p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:1rem">
-      <div class="card-eyebrow">Mi visión crítica comparativa</div>
-      <p class="card-body">
-        <strong>Aspectos comunes:</strong> <em>[describe qué tienen en común ambos libros]</em><br>
-        <strong>Incoherencias o contradicciones:</strong> <em>[señala aspectos que no encajan o con los que no estás de acuerdo]</em><br>
-        <strong>Utilidad práctica para mí:</strong> <em>[qué has podido aplicar realmente de lo leído]</em>
-      </p>
-    </div>
-  </section>
-
-  <!-- ─── SECCIÓN 4 ─── -->
-  <section class="section" id="sec4">
-    <div class="section-header">
-      <div class="section-num">04</div>
-      <div>
-        <div class="section-label">Identidad digital profesional</div>
-        <h2 class="section-title">Perfil en LinkedIn</h2>
-        <p class="section-desc">Mi identidad digital profesional, con al menos una publicación relacionada con la asignatura.</p>
-      </div>
-    </div>
-
-    <div class="li-card">
-      <div class="li-logo">in</div>
-      <div>
-        <div style="font-weight:500;font-size:15px">Ane Ojinaga Ayerra</div>
-        <div style="font-size:13px;color:#0a66c2;margin-top:2px">linkedin.com/in/aneojinagaayerra/</div>
-        <div style="font-size:13px;color:var(--ink-muted);margin-top:4px">Estudiante de Grado en ADE con Innovación y Emprendimiento · Pamplona</div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:1rem">
-      <div class="card-eyebrow">Publicación destacada en LinkedIn</div>
-      <div class="card-title">Sobre lo aprendido en la asignatura</div>
-      <p class="card-body"><em>Describe aquí de qué trata tu publicación en LinkedIn, qué aprendizaje o experiencia compartiste y por qué decidiste publicarlo. Incluye el enlace directo a la publicación.</em></p>
-      <a href="https://linkedin.com" target="_blank" rel="noopener" class="link-btn">Ver publicación en LinkedIn ↗</a>
-    </div>
-  </section>
-
-  <!-- ─── SECCIÓN 5 ─── -->
-  <section class="section" id="sec5">
-    <div class="section-header">
-      <div class="section-num">05</div>
-      <div>
-        <div class="section-label">Formación complementaria</div>
-        <h2 class="section-title">Certificados y cursos completados</h2>
-        <p class="section-desc">Cursos relacionados con innovación, emprendimiento y liderazgo.</p>
-      </div>
-    </div>
- 
-    <div class="grid-2">
- 
-      <!-- Certificado 1 -->
-      <div class="badge-card" style="flex-direction:column;gap:1rem">
-        <div style="display:flex;gap:1rem;align-items:flex-start">
-          <div class="badge-icon" style="font-size:22px;width:46px;height:46px;flex-shrink:0">G</div>
-          <div>
-            <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;margin-bottom:3px">Google</div>
-            <div style="font-weight:500;font-size:14px;color:#412402">Competencias digitales para profesionales</div>
-          </div>
-        </div>
-        <a href="Certificado.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #e8cc9a;border-radius:3px;font-size:13px;color:#633806;text-decoration:none;background:white">Ver certificado PDF ↗</a>
-        <p style="font-size:13px;color:#854F0B;line-height:1.6"><em>Añade aquí tu reflexión: qué aprendiste y cómo lo relacionas con la asignatura.</em></p>
-      </div>
- 
-      <!-- Certificado 2 -->
-      <div class="badge-card" style="flex-direction:column;gap:1rem">
-        <div style="display:flex;gap:1rem;align-items:flex-start">
-          <div class="badge-icon" style="font-size:22px;width:46px;height:46px;flex-shrink:0">HP</div>
-          <div>
-            <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;margin-bottom:3px">HP</div>
-            <div style="font-weight:500;font-size:14px;color:#412402">Emprendimiento Social</div>
-          </div>
-        </div>
-        <a href="Emprendimiento Social.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #e8cc9a;border-radius:3px;font-size:13px;color:#633806;text-decoration:none;background:white">Ver certificado PDF ↗</a>
-        <p style="font-size:13px;color:#854F0B;line-height:1.6"><em>Añade aquí tu reflexión: qué aprendiste y cómo lo relacionas con la asignatura.</em></p>
-      </div>
- 
-      <!-- Certificado 3 -->
-      <div class="badge-card" style="flex-direction:column;gap:1rem">
-        <div style="display:flex;gap:1rem;align-items:flex-start">
-          <div class="badge-icon" style="font-size:22px;width:46px;height:46px;flex-shrink:0">HP</div>
-          <div>
-            <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;margin-bottom:3px">HP</div>
-            <div style="font-weight:500;font-size:14px;color:#412402">Liderazgo Efectivo</div>
-          </div>
-        </div>
-        <a href="Liderazgo Efectivo.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #e8cc9a;border-radius:3px;font-size:13px;color:#633806;text-decoration:none;background:white">Ver certificado PDF ↗</a>
-        <p style="font-size:13px;color:#854F0B;line-height:1.6"><em>Añade aquí tu reflexión: qué aprendiste y cómo lo relacionas con la asignatura.</em></p>
-      </div>
- 
-      <!-- Certificado 4 -->
-      <div class="badge-card" style="flex-direction:column;gap:1rem">
-        <div style="display:flex;gap:1rem;align-items:flex-start">
-          <div class="badge-icon" style="font-size:18px;width:46px;height:46px;flex-shrink:0">HBR</div>
-          <div>
-            <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;margin-bottom:3px">Harvard ManageMentor</div>
-            <div style="font-weight:500;font-size:14px;color:#412402">Strategic Thinking</div>
-          </div>
-        </div>
-        <a href="strategic_thinking PBA.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid #e8cc9a;border-radius:3px;font-size:13px;color:#633806;text-decoration:none;background:white">Ver certificado PDF ↗</a>
-        <p style="font-size:13px;color:#854F0B;line-height:1.6"><em>Añade aquí tu reflexión: qué aprendiste y cómo lo relacionas con la asignatura.</em></p>
-      </div>
- 
-    </div>
- 
-    <div class="card" style="margin-top:1.25rem">
-      <div class="card-eyebrow">¿Por qué estos cursos y qué me aportaron?</div>
-      <p class="card-body"><em>Escribe aquí una reflexión global: qué te motivó a elegir estos cursos, qué has aprendido en conjunto y cómo los relacionas con la asignatura y tu desarrollo como emprendedora.</em></p>
-    </div>
-  </section>
-
-  <!-- ─── SECCIÓN 6 ─── -->
-  <section class="section" id="sec6">
-    <div class="section-header">
-      <div class="section-num">06</div>
-      <div>
-        <div class="section-label">Trabajo colaborativo</div>
-        <h2 class="section-title">Site del equipo</h2>
-        <p class="section-desc">Reflexión sobre el trabajo en equipo y enlace al site colectivo.</p>
-      </div>
-    </div>
-
-    <div class="team-card">
-      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#0F6E56;margin-bottom:0.75rem">Mi reflexión sobre el trabajo en equipo</div>
-      <p style="font-size:15px;color:#085041;line-height:1.7"><em>
-        Describe en 3–5 frases qué ha implicado este trabajo en equipo para ti: dificultades, aprendizajes, momentos clave. ¿Qué resultados habéis conseguido juntos? ¿Qué consejos darías a otros equipos que trabajan en proyectos de innovación?
-      </em></p>
-    </div>
-
-    <div class="card" style="margin-top:1rem">
-      <div class="card-eyebrow">Enlace al site del equipo</div>
-      <div class="card-title">[Nombre del proyecto de equipo]</div>
-      <p class="card-body"><em>Breve descripción del proyecto: qué problema abordasteis, qué solución propusisteis y cuáles fueron vuestros resultados principales.</em></p>
-      <a href="#" class="link-btn green">Visitar el site del equipo ↗</a>
-    </div>
-
+  <section class="section" id="sec-video">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Habilidades clave</h2>
     <div class="card">
-      <div class="card-eyebrow">Miembros del equipo</div>
-      <div class="grid-2" style="margin-top:0.75rem">
-        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
-          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">TN</div>
-          <div><div style="font-size:13px;font-weight:500">Ane Ojinaga</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        <p style="margin-bottom: 1.5rem;">Vídeo con mi visión personal y mis fuentes de aprendizaje sobre el emprendimiento moderno.</p>
+        <div style="background: #000; aspect-ratio: 16/9; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white;">
+            <span>[Espacio para Video de YouTube/Drive]</span>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
-          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C2</div>
-          <div><div style="font-size:13px;font-weight:500">Cecilia Fiallos</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="sec-books">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Análisis Bibliográfico</h2>
+    <div class="grid-3">
+      <div class="card book-card">
+        <img src="https://via.placeholder.com/60x90" alt="Portada" class="book-img">
+        <div class="card-eyebrow">Libro 1</div>
+        <h4 style="margin-top: 1rem;">Título del Libro</h4>
+        <p style="font-size: 13px; margin-top: 1rem; color: var(--ink-soft);">Análisis de los puntos clave y cómo aplicarlo a la estrategia de negocio actual.</p>
+      </div>
+      <div class="card book-card">
+        <img src="https://via.placeholder.com/60x90" alt="Portada" class="book-img">
+        <div class="card-eyebrow">Libro 2</div>
+        <h4 style="margin-top: 1rem;">Título del Libro</h4>
+        <p style="font-size: 13px; margin-top: 1rem; color: var(--ink-soft);">Reflexión crítica sobre el impacto de la innovación en las organizaciones.</p>
+      </div>
+      <div class="card book-card">
+        <img src="https://via.placeholder.com/60x90" alt="Portada" class="book-img">
+        <div class="card-eyebrow">Libro 3</div>
+        <h4 style="margin-top: 1rem;">Título del Libro</h4>
+        <p style="font-size: 13px; margin-top: 1rem; color: var(--ink-soft);">Nuevas perspectivas sobre el liderazgo y la resiliencia del emprendedor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sec-cert">
+    <div class="section-num">06</div>
+    <h2 class="section-title">Certificados y Cursos</h2>
+    <div class="grid-2">
+      <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
+        <div class="logo-circle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
         </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
-          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C3</div>
-          <div><div style="font-size:13px;font-weight:500">Gina Jeon</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        <div>
+            <h4 style="font-size: 15px;">Competencias Digitales</h4>
+            <p style="font-size: 12px; color: var(--ink-muted);">Google Activate</p>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
-          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C4</div>
-          <div><div style="font-size:13px;font-weight:500">Sylvia Aray</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+      </div>
+      <div class="card" style="display: flex; gap: 1.5rem; align-items: center;">
+        <div class="logo-circle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" alt="HP">
         </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px;background:var(--paper-warm);border-radius:var(--radius);border:1px solid var(--rule)">
-          <div style="width:34px;height:34px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0">C4</div>
-          <div><div style="font-size:13px;font-weight:500">Felipe Rouillon</div><a href="#" style="font-size:12px;color:var(--accent)">Portfolio ↗</a></div>
+        <div>
+            <h4 style="font-size: 15px;">Emprendimiento Social</h4>
+            <p style="font-size: 12px; color: var(--ink-muted);">HP LIFE</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="section" id="sec-contact">
+    <div class="section-num">07</div>
+    <h2 class="section-title">Contacto</h2>
+    <div class="card" style="text-align: center; background: var(--accent-light); border: none;">
+      <p style="margin-bottom: 2rem;">¿Te interesa mi perfil o quieres colaborar en algún proyecto? ¡Hablemos!</p>
+      <a href="mailto:tuemail@dominio.com" class="contact-link">📧 ane.ojinaga@universidad.edu</a>
+      <a href="https://linkedin.com/in/tuperfil" target="_blank" class="contact-link">🔗 LinkedIn: /aneojinagaayerra</a>
+      <p style="margin-top: 1rem; font-size: 13px; color: var(--ink-muted);">Pamplona, Navarra · España</p>
+    </div>
+  </section>
 
 </main>
 
-<footer>
-  <p>Portfolio digital · <strong>Ane Ojinaga Ayerra</strong> · Competencias emprendedoras · 2025–26</p>
+<footer style="padding: 4rem 2rem; text-align: center; background: #1a1a1a; color: white; font-size: 12px; letter-spacing: 1px;">
+    &copy; 2026 ANE OJINAGA AYERRA · PORTFOLIO DE COMPETENCIAS
 </footer>
 
 </body>
