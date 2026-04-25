@@ -680,6 +680,123 @@
       #contacto .contact-grid { grid-template-columns: 1fr; }
     }
 
+    /* ── APRENDIZAJES ── */
+    .aprendizajes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .aprendizaje-card {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .aprendizaje-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .aprendizaje-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .aprendizaje-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .aprendizaje-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .aprendizaje-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .aprendizaje-text {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-top: 4px;
+    }
+    @media (max-width: 860px) { .aprendizajes-grid { grid-template-columns: 1fr; } }
+
+    /* ── PLAN DE DESARROLLO ── */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .plan-intro p {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .plan-weakness {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+    .plan-weakness-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .plan-weakness p { font-size: 0.88rem; color: var(--ink); line-height: 1.65; margin: 0; }
+    .plan-phases { display: flex; flex-direction: column; }
+    .plan-phase {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .plan-phase:last-child { border-bottom: none; }
+    .plan-phase-period {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      padding-top: 3px;
+    }
+    .plan-phase-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .plan-phase ul { padding-left: 1.1em; display: flex; flex-direction: column; gap: 5px; }
+    .plan-phase ul li { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.6; }
+    @media (max-width: 860px) { .plan-grid { grid-template-columns: 1fr; gap: 40px; } }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -728,6 +845,8 @@
       <li><a href="#mentores">Mentores</a></li>
       <li><a href="#linkedin-sec">LinkedIn</a></li>
       <li><a href="#certs">Certificados</a></li>
+      <li><a href="#aprendizajes">Aprendizajes</a></li>
+      <li><a href="#plan">Plan de desarrollo</a></li>
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -1106,9 +1225,117 @@
 
   <div class="section-divider"></div>
 
-  <!-- 07 EQUIPO -->
+  <!-- 07 APRENDIZAJES Y REFLEXIONES -->
+  <section id="aprendizajes">
+    <p class="section-label fade-in">07 &mdash; Aprendizajes y reflexiones</p>
+    <h2 class="fade-in">Lo que he<br><em style="font-style:italic;color:var(--accent)">vivido</em></h2>
+    <div class="aprendizajes-grid fade-in">
+
+      <!-- BATALLA DE GALLOS -->
+      <div class="aprendizaje-card">
+        <div class="aprendizaje-img-placeholder">Añadir foto</div>
+        <div class="aprendizaje-body">
+          <p class="aprendizaje-tag">Evento &middot; Abril 2025</p>
+          <p class="aprendizaje-title">Batalla de Gallos UNAV vs Jesuitinas</p>
+          <p class="aprendizaje-text">Participé en la organización de este evento que enfrentó a estudiantes de la Universidad de Navarra con el colegio Jesuitinas. Fue una experiencia de trabajo en equipo real donde aprendí que coordinar a muchas personas requiere comunicación constante, repartir bien las responsabilidades y confiar en que cada parte cumple con su rol.</p>
+        </div>
+      </div>
+
+      <!-- HACKATHON -->
+      <div class="aprendizaje-card">
+        <div class="aprendizaje-img-placeholder">Añadir foto</div>
+        <div class="aprendizaje-body">
+          <p class="aprendizaje-tag">Competición &middot; 2025</p>
+          <p class="aprendizaje-title">Hackathon 2025</p>
+          <p class="aprendizaje-text">Trabajé en equipo aplicando las herramientas y habilidades del curso, desde la ideación hasta la presentación final. Fue un reto intenso que me obligó a tomar decisiones rápidas, priorizar ideas bajo presión y defender una propuesta ante un jurado. Una de las experiencias más enriquecedoras del curso.</p>
+        </div>
+      </div>
+
+      <!-- PROYECTO X -->
+      <div class="aprendizaje-card">
+        <div class="aprendizaje-img-placeholder">Añadir foto</div>
+        <div class="aprendizaje-body">
+          <p class="aprendizaje-tag">Proyecto &middot; 2025</p>
+          <p class="aprendizaje-title">Proyecto X</p>
+          <p class="aprendizaje-text">Descripción del proyecto por añadir.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 08 PLAN DE DESARROLLO -->
+  <section id="plan">
+    <p class="section-label fade-in">08 &mdash; Plan de desarrollo</p>
+    <h2 class="fade-in">Mi plan de desarrollo<br><em style="font-style:italic;color:var(--accent)">de competencias</em></h2>
+    <div class="plan-grid fade-in">
+
+      <div class="plan-intro">
+        <p>A partir de mis autodiagnósticos —INTJ-T, Finalizadora en Belbin y Experto Básico en EntreComp— he identificado que mi mayor fortaleza está en la ejecución, el detalle y la constancia. Sin embargo, como Finalizadora tiendo a trabajar en segundo plano y me cuesta más tomar la iniciativa en la comunicación externa.</p>
+        <p>Por eso, la competencia que quiero desarrollar de forma prioritaria es la <strong>comunicación emprendedora y la visibilidad profesional</strong>: aprender a trasladar ideas con naturalidad a audiencias diversas, construir una red de contactos activa y ganar confianza como interlocutora en entornos de innovación.</p>
+        <div class="plan-weakness">
+          <p class="plan-weakness-label">Competencia a desarrollar</p>
+          <p>Comunicación emprendedora y visibilidad profesional — pasar de ejecutar bien en silencio a comunicar con confianza y construir presencia en el entorno emprendedor.</p>
+        </div>
+      </div>
+
+      <div class="plan-phases">
+        <div class="plan-phase">
+          <p class="plan-phase-period">Meses 1–3</p>
+          <div>
+            <p class="plan-phase-title">Diagnóstico y fundamentos</p>
+            <ul>
+              <li>Grabar presentaciones propias y analizar tono, lenguaje corporal y claridad.</li>
+              <li>Leer sobre comunicación persuasiva y storytelling.</li>
+              <li>Tomar un curso introductorio online sobre presentaciones efectivas.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="plan-phase">
+          <p class="plan-phase-period">Meses 4–9</p>
+          <div>
+            <p class="plan-phase-title">Práctica en entornos seguros</p>
+            <ul>
+              <li>Ofrecerme como portavoz del grupo en presentaciones de clase.</li>
+              <li>Practicar elevator pitches de 1 minuto con compañeros y pedir feedback.</li>
+              <li>Crear contenido en LinkedIn sobre innovación para ganar fluidez escrita.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="plan-phase">
+          <p class="plan-phase-period">Meses 10–18</p>
+          <div>
+            <p class="plan-phase-title">Exposición real</p>
+            <ul>
+              <li>Participar en ferias, hackathones u otros eventos externos como portavoz.</li>
+              <li>Pedir feedback estructurado a mentores tras cada presentación.</li>
+              <li>Elaborar un pitch deck completo y defenderlo ante personas externas.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="plan-phase">
+          <p class="plan-phase-period">Meses 19–24</p>
+          <div>
+            <p class="plan-phase-title">Consolidación y networking</p>
+            <ul>
+              <li>Participar en eventos de networking como representante de un proyecto propio.</li>
+              <li>Construir una red activa de contactos en innovación y emprendimiento.</li>
+              <li>Presentar el proyecto a una incubadora o entorno inversor.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 09 EQUIPO -->
   <section id="equipo">
-    <p class="section-label fade-in">07 &mdash; Colaboración</p>
+    <p class="section-label fade-in">09 &mdash; Colaboración</p>
     <h2 class="fade-in">Mi equipo</h2>
     <div class="team-cta fade-in">
       <a class="team-card" href="https://site-de-equipo-1.base44.app/" target="_blank" style="width:100%;">
@@ -1161,7 +1388,7 @@
 
   <!-- 08 CONTACTO -->
   <section id="contacto">
-    <p class="section-label fade-in">08 &mdash; Contacto</p>
+    <p class="section-label fade-in">10 &mdash; Contacto</p>
     <h2 class="fade-in">Hablemos</h2>
     <div class="contact-grid fade-in">
       <a class="contact-card" href="mailto:aneojinaga@gmail.com">
