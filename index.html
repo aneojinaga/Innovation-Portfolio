@@ -299,6 +299,8 @@
       border: 1px solid var(--border);
       padding: 32px 28px;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
     .diag-card-title {
       font-size: 0.7rem;
@@ -325,7 +327,7 @@
     .digcomp-label { font-size: 0.78rem; color: var(--ink-mid); display: flex; justify-content: space-between; }
     .digcomp-track { height: 4px; background: var(--border); }
     .digcomp-fill { height: 100%; transition: width 1.2s cubic-bezier(0.16,1,0.3,1); }
-    .diag-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 5px 12px; transition: background 0.2s, color 0.2s; }
+    .diag-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 20px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 5px 12px; transition: background 0.2s, color 0.2s; align-self: flex-start; }
     .diag-link:hover { background: var(--accent); color: #fff; }
     .diag-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
 
@@ -955,7 +957,7 @@
         <p class="diag-sub">Test de personalidad basado en los 16 tipos</p>
         <a class="diag-link" href="uploads/16 personalidades2026-04-23 a las 18.19.55.png" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Ver resultado
+          Ver resultados
         </a>
       </div>
 
@@ -963,9 +965,9 @@
         <p class="diag-card-title">Roles de equipo (Belbin)</p>
         <h3>Finalizadora</h3>
         <p class="diag-sub">Diagnóstico de roles en entornos de equipo</p>
-        <a class="diag-link" href="uploads/Roles.png" target="_blank" style="margin-top:12px;">
+        <a class="diag-link" href="uploads/Roles.png" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Ver resultado
+          Ver resultados
         </a>
       </div>
 
@@ -975,7 +977,7 @@
         <p class="diag-sub">Autodiagnóstico basado en el marco europeo DigComp</p>
         <a class="diag-link" href="uploads/CompetenciasDigitales.pdf" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Ver resultado
+          Ver resultados
         </a>
       </div>
 
@@ -985,7 +987,7 @@
         <p class="diag-sub">Autodiagnóstico basado en el marco europeo EntreComp</p>
         <a class="diag-link" href="uploads/resultados_autodiagnostico_25_04_2026.pdf" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Ver resultado
+          Ver resultados
         </a>
       </div>
 
@@ -1237,7 +1239,7 @@
         <div class="aprendizaje-body">
           <p class="aprendizaje-tag">Evento &middot; Abril 2026</p>
           <p class="aprendizaje-title">Batalla de Gallos UNAV vs Jesuitinas</p>
-          <p class="aprendizaje-text">Participé en la organización de este evento que enfrentó a estudiantes de la Universidad de Navarra con el colegio Jesuitinas. Fue una experiencia de trabajo en equipo real donde aprendí que coordinar a muchas personas requiere comunicación constante, repartir bien las responsabilidades y confiar en que cada parte cumple con su rol. En lo personal, me encargué de conseguir patrocinadores y de gestionar el trato con ellos, además de colaborar en el área de comunicación: gestioné el Instagram del evento y me ocupé de la preparación de los certificados de participación.</p>
+          <p class="aprendizaje-text">Participé en la organización de este evento que enfrentó a estudiantes de la Universidad de Navarra con el colegio Jesuitinas. Fue una experiencia de trabajo en equipo real donde aprendí que coordinar a muchas personas requiere comunicación constante, repartir bien las responsabilidades y confiar en que cada parte cumple con su rol. En lo personal, me encargué de conseguir patrocinadores y de gestionar el trato con ellos, además de colaborar en el área de comunicación: colaboré en la gestión del Instagram del evento y me ocupé de la preparación de los certificados de participación.</p>
           <a class="diag-link" href="https://www.instagram.com/batalladegallos2026" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             Ver en Instagram
