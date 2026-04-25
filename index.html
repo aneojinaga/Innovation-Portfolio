@@ -290,7 +290,7 @@
     #autodiag { background: none; }
     .diag-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       align-items: start;
     }
@@ -554,6 +554,12 @@
     }
     .cert-link-label svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; }
     .cert-card:hover .cert-link-label { color: var(--accent); }
+    .cert-comment {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin-top: 4px;
+    }
 
     /* ── 07 EQUIPO ── */
     #equipo .team-cta {
@@ -701,7 +707,7 @@
       #sobre-mi .inner { grid-template-columns: 1fr; gap: 40px; }
       .photo-wrap { max-width: 260px; }
       #habilidades .grid2 { grid-template-columns: 1fr; }
-      .diag-grid { grid-template-columns: 1fr; }
+      .diag-grid { grid-template-columns: 1fr 1fr; }
       #certs .cert-grid { grid-template-columns: 1fr 1fr; }
       #equipo .team-cta { grid-template-columns: 1fr; }
       #linkedin-sec .inner { flex-direction: column; align-items: flex-start; }
@@ -855,6 +861,16 @@
         </a>
       </div>
 
+      <div class="diag-card">
+        <p class="diag-card-title">Competencias Emprendedoras · EntreComp UE</p>
+        <h3>Experto Básico</h3>
+        <p class="diag-sub">Autodiagnóstico basado en el marco europeo EntreComp</p>
+        <a class="diag-link" href="uploads/resultados_autodiagnostico_25_04_2026.pdf" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver resultado
+        </a>
+      </div>
+
     </div>
   </section>
 </p>
@@ -947,7 +963,7 @@
       </div>
 
       <div class="mentor-card">
-        <div class="mentor-avatar"><img src="uploads/Inigo Benito.jpeg" alt="Iñigo Benito" /></div>
+        <div class="mentor-avatar"><img src="uploads/InigoBenito.jpeg" alt="Iñigo Benito" /></div>
         <div class="mentor-info">
           <p class="mentor-name">Iñigo Benito Simón-Ricart</p>
           <p class="mentor-company">Human AI</p>
@@ -956,7 +972,7 @@
       </div>
 
       <div class="mentor-card">
-        <div class="mentor-avatar"><img src="uploads/Victor Iriarte.jpeg" alt="Víctor Iriarte" /></div>
+        <div class="mentor-avatar"><img src="uploads/Victor Iriarte bn.jpeg" alt="Víctor Iriarte" /></div>
         <div class="mentor-info">
           <p class="mentor-name">Víctor Iriarte</p>
           <p class="mentor-company">Caja Rural</p>
@@ -974,7 +990,7 @@
       </div>
 
       <div class="mentor-card">
-        <div class="mentor-avatar"><img src="uploads/csm_nora_alonso_dfd4a853ce.jpg" alt="Nora Alonso" /></div>
+        <div class="mentor-avatar"><img src="uploads/Nora Alonso bn.jpg" alt="Nora Alonso" /></div>
         <div class="mentor-info">
           <p class="mentor-name">Nora Alonso</p>
           <p class="mentor-company">Sector Agroalimentario</p>
@@ -983,7 +999,7 @@
       </div>
 
       <div class="mentor-card">
-        <div class="mentor-avatar"><img src="uploads/Elias rodriguez.jpeg" alt="Elías Rodríguez" /></div>
+        <div class="mentor-avatar"><img src="uploads/Elias Rodriguez BN.jpeg" alt="Elías Rodríguez" /></div>
         <div class="mentor-info">
           <p class="mentor-name">Elías Rodríguez Toral</p>
           <p class="mentor-company">AIN</p>
@@ -1033,6 +1049,7 @@
         <p class="cert-name">Strategic Thinking</p>
         <p class="cert-org">Harvard ManageMentor</p>
         <p class="cert-year">2025</p>
+        <p class="cert-comment">Este curso me ha aportado una metodología estructurada para elevar la mirada más allá del día a día. He aprendido a conectar las señales del mercado con la operativa interna, desarrollando una mentalidad proactiva que prioriza la creación de valor a largo plazo y la anticipación ante entornos de incertidumbre.</p>
         <p class="cert-link-label">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver certificado
@@ -1047,6 +1064,7 @@
         <p class="cert-name">Liderazgo Efectivo</p>
         <p class="cert-org">HP</p>
         <p class="cert-year">2026</p>
+        <p class="cert-comment">Elegí este curso para fortalecer mi capacidad de guiar equipos en entornos dinámicos. Lo que más me ha aportado es una visión clara sobre cómo la comunicación asertiva y la gestión del talento pueden transformar objetivos abstractos en resultados tangibles. Ha sido clave para pulir mi estilo de toma de decisiones.</p>
         <p class="cert-link-label">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver certificado
@@ -1059,8 +1077,9 @@
           <img src="uploads/HP_logo_2012.svg.png" alt="HP" style="height:32px;width:auto;" />
         </div>
         <p class="cert-name">Emprendimiento Social</p>
-        <p class="cert-org">HP</p>
+        <p class="cert-org">HP LIFE</p>
         <p class="cert-year">2026</p>
+        <p class="cert-comment">Elegí este curso para entender cómo integrar la rentabilidad económica con el impacto social. Lo que más me ha aportado es una metodología clara para identificar problemas en el entorno y transformarlos en oportunidades de negocio sostenibles, demostrando que innovación y responsabilidad social van de la mano.</p>
         <p class="cert-link-label">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver certificado
@@ -1075,6 +1094,7 @@
         <p class="cert-name">Competencias digitales</p>
         <p class="cert-org">Google</p>
         <p class="cert-year">2026</p>
+        <p class="cert-comment">Elegí este curso para consolidar mi perfil en un entorno laboral cada vez más digitalizado. Lo que más me ha aportado es una visión integral de las herramientas de productividad, ciberseguridad y comunicación online. Tras 40 horas de formación, he reforzado mi capacidad para adaptar procesos analógicos a flujos de trabajo digitales eficientes.</p>
         <p class="cert-link-label">
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Ver certificado
@@ -1101,21 +1121,21 @@
       </a>
       <div class="teammates-grid">
         <a class="teammate-card" href="https://sebastian-villeda.base44.app/" target="_blank">
-          <span class="teammate-initials">SV</span>
+          <span class="teammate-initials"><img src="uploads/Sebastián.jpeg" alt="Sebastián" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></span>
           <div>
             <p class="teammate-name">Sebastián Villeda</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
           </div>
         </a>
         <a class="teammate-card" href="https://cfiallosmen.wixsite.com/cecilia-fiallos" target="_blank">
-          <span class="teammate-initials">CF</span>
+          <span class="teammate-initials"><img src="uploads/Ceci.jpeg" alt="Cecilia" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></span>
           <div>
             <p class="teammate-name">Cecilia Fiallos</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
           </div>
         </a>
         <a class="teammate-card" href="https://ginajeon05.wixsite.com/ginajeon" target="_blank">
-          <span class="teammate-initials">GJ</span>
+          <span class="teammate-initials"><img src="uploads/Gina.jpeg" alt="Gina" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></span>
           <div>
             <p class="teammate-name">Gina Jeon</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
@@ -1129,7 +1149,7 @@
           </div>
         </a>
         <a class="teammate-card" href="https://rouillon-venture-hub.base44.app/" target="_blank">
-          <span class="teammate-initials">FR</span>
+          <span class="teammate-initials"><img src="uploads/Felipe.jpeg" alt="Felipe" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></span>
           <div>
             <p class="teammate-name">Felipe Rouillón</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
