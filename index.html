@@ -776,12 +776,13 @@
       <!-- VIDEO -->
       <div>
         <div class="video-box" id="video-habilidades">
-          <!-- Reemplaza el src con tu URL de YouTube embed cuando lo tengas -->
-          <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
-          <div class="play-icon">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--ink-soft)"><polygon points="4,2 14,8 4,14"/></svg>
-          </div>
-          <span class="video-placeholder-label">Vídeo de habilidades<br>Pega tu URL de YouTube aquí</span>
+          <iframe
+            src="https://player.cloudinary.com/embed/?cloud_name=doj0gke8a&public_id=copy_BF507309-2536-4CC7-A059-DF70B3065ED9_migec7"
+            style="position:absolute;inset:0;width:100%;height:100%;border:none;"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+            allowfullscreen
+            frameborder="0"
+          ></iframe>
         </div>
       </div>
 
@@ -904,6 +905,17 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- VIDEO COMPARACION -->
+    <div class="fade-in" style="margin-bottom:20px;">
+      <iframe
+        src="https://player.cloudinary.com/embed/?cloud_name=doj0gke8a&public_id=copy_F582D1CB-74F9-442C-859B-30BDFB2E5BB4_cgnl4v"
+        style="width:100%;aspect-ratio:640/360;border:1px solid var(--border);display:block;"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        allowfullscreen
+        frameborder="0"
+      ></iframe>
     </div>
 
     <!-- COMPARACION CRITICA -->
@@ -1030,10 +1042,7 @@
       <!-- Strategic Thinking — Harvard -->
       <a class="cert-card" href="uploads/strategic_thinking PBA.pdf" target="_blank">
         <div class="cert-logo">
-          <svg viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
-            <rect width="120" height="32" rx="3" fill="#A51C30"/>
-            <text x="10" y="21" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="0.5">HARVARD</text>
-          </svg>
+          <img src="uploads/Harvard_University_shield.png" alt="Harvard" style="height:32px;width:auto;" />
         </div>
         <p class="cert-name">Strategic Thinking</p>
         <p class="cert-org">Harvard ManageMentor</p>
@@ -1047,10 +1056,7 @@
       <!-- Liderazgo Efectivo — HP -->
       <a class="cert-card" href="uploads/Liderazgo Efectivo (1).pdf" target="_blank">
         <div class="cert-logo">
-          <svg viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="32" rx="3" fill="#0096D6"/>
-            <text x="12" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">hp</text>
-          </svg>
+          <img src="uploads/HP_logo_2012.svg.png" alt="HP" style="height:32px;width:auto;" />
         </div>
         <p class="cert-name">Liderazgo Efectivo</p>
         <p class="cert-org">HP</p>
@@ -1064,10 +1070,7 @@
       <!-- Emprendimiento Social — HP -->
       <a class="cert-card" href="uploads/Emprendimiento Social (3).pdf" target="_blank">
         <div class="cert-logo">
-          <svg viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="32" rx="3" fill="#0096D6"/>
-            <text x="12" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">hp</text>
-          </svg>
+          <img src="uploads/HP_logo_2012.svg.png" alt="HP" style="height:32px;width:auto;" />
         </div>
         <p class="cert-name">Emprendimiento Social</p>
         <p class="cert-org">HP</p>
@@ -1081,11 +1084,7 @@
       <!-- Competencias digitales — Google -->
       <a class="cert-card" href="uploads/Certificado (1).pdf" target="_blank">
         <div class="cert-logo">
-          <svg viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="24" font-family="Arial, sans-serif" font-size="22" font-weight="700">
-              <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
-            </text>
-          </svg>
+          <img src="uploads/google-lens-icon-logo-symbol-free-png.webp" alt="Google" style="height:32px;width:auto;" />
         </div>
         <p class="cert-name">Competencias digitales</p>
         <p class="cert-org">Google</p>
@@ -1115,21 +1114,21 @@
         <span style="font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);">Ver equipo</span>
       </a>
       <div class="teammates-grid">
-        <a class="teammate-card" href="#" target="_blank">
+        <a class="teammate-card" href="https://sebastian-villeda.base44.app/" target="_blank">
           <span class="teammate-initials">SV</span>
           <div>
             <p class="teammate-name">Sebastián Villeda</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
           </div>
         </a>
-        <a class="teammate-card" href="#" target="_blank">
+        <a class="teammate-card" href="https://cfiallosmen.wixsite.com/cecilia-fiallos" target="_blank">
           <span class="teammate-initials">CF</span>
           <div>
             <p class="teammate-name">Cecilia Fiallos</p>
             <p class="teammate-link-label">Ver portfolio ↗</p>
           </div>
         </a>
-        <a class="teammate-card" href="#" target="_blank">
+        <a class="teammate-card" href="https://ginajeon05.wixsite.com/ginajeon" target="_blank">
           <span class="teammate-initials">GJ</span>
           <div>
             <p class="teammate-name">Gina Jeon</p>
@@ -1143,7 +1142,7 @@
             <p class="teammate-link-label">Ver portfolio ↗</p>
           </div>
         </a>
-        <a class="teammate-card" href="#" target="_blank">
+        <a class="teammate-card" href="https://rouillon-venture-hub.base44.app/" target="_blank">
           <span class="teammate-initials">FR</span>
           <div>
             <p class="teammate-name">Felipe Rouillón</p>
